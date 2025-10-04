@@ -1,0 +1,56 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Build output
+*.log
+
+# IDEs
+/.idea/
+/.vscode/
+/*.iml
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Maven/Gradle
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper-downloader.jar
+
+# Local config & secrets (keep samples instead)
+application-local.yml
+application-dev.yml
+application-postgres.yml
+application-kafka.yml
+.env

@@ -1,0 +1,23 @@
+services:
+  kafka:
+    image: apache/kafka:3.8.0
+    container_name: tp-kafka
+    ports:
+      - "9092:9092"   # clients on host connect to localhost:9092
+      - "9093:9093"   # controller
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      # IMPORTANT: provide a cluster id (generate once and keep it)
+      KAFKA_CLUSTER_ID: Ml3uDI1VRT6RrLF757YHig
+      KAFKA_CFG_LOG_DIRS: /var/lib/kafka/data
